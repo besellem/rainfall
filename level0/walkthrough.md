@@ -9,26 +9,7 @@ $> ./level0 test
 No !
 ```
 
-When disassembling the program we can see something like this:
-
-```c
-int main(int ac, char **av) {
-	if (atoi(av[1]) == 0x1a7) {
-		char *s = strdup("/bin/sh");
-		int egid = getegid();
-		int euid = geteuid();
-		setresgid(egid, egid, egid);
-		setresuid(euid, euid, euid);
-		execv("/bin/sh", &s);
-	}
-	else {
-		fwrite("No !\n", 0x1, 0x5, *_IO_stderr);
-	}
-	return 0;
-}
-```
-
-As we can see, we just have to set the first argument to 0x1a7 (423 in decimal) to launch a new terminal
+As we can see in the source code, we just have to set the first argument to 0x1a7 (423 in decimal) to launch a new terminal
 
 ```sh
 $> ./level0 423
