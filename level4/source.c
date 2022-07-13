@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+int		m;
+
 void	p(char *str)
 {
 	printf(str);
@@ -19,7 +21,7 @@ void	n(void)
 	}
 }
 
-void	main(void)
+int		main(void)
 {
 	n();
 }

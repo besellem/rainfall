@@ -5,21 +5,23 @@
 
 void	p(void)
 {
-	unsigned long	retaddr;
-	char			buffer[76];
+	void	*retaddr;
+	char	buffer[76];
 
 	fflush(stdout);
 	gets(buffer);
-	if ((retaddr & 0xb0000000) == 0xb0000000) {
-		printf("(%p)\n", (void *)retaddr);
+
+	retaddr = __builtin_return_address (0);
+	if (((unsigned int)retaddr & 0xb0000000) == 0xb0000000) {
+		printf("(%p)\n", retaddr);
 		_exit(1);
 	}
+	
 	puts(buffer);
 	strdup(buffer);
 }
 
-void	main(void)
+int		main(void)
 {
 	p();
-	return;
 }

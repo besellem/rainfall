@@ -3,6 +3,8 @@
 #include <string.h>
 #include <unistd.h>
 
+int		m;
+
 void	v(void)
 {
 	char	str[520];
@@ -16,8 +18,7 @@ void	v(void)
 	}
 }
 
-void	main(void)
+int		main(void)
 {
 	v();
-	return;
 }

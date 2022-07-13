@@ -17,7 +17,7 @@ int		main(int ac, char **av)
 	}
 	else
 	{
-		fwrite("No !\n", 0x1, 0x5, stderr);
+		fwrite("No !\n", 1, 5, stderr);
 	}
 	return 0;
 }
