@@ -10,7 +10,7 @@ void	p(char *str)
 void	n(void)
 {
 	char	str[520];
-	
+
 	fgets(str, 512, stdin);
 	p(str);
 	if (m == 16930116)
