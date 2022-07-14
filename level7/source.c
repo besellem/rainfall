@@ -17,19 +17,19 @@ void	m(void)
 int		main(int argc, char **argv)
 {
 	int		*tab1;
-	int		*tab3;
+	int		*tab2;
 	FILE	*stream;
 
 	tab1 = (int *)malloc(8);
 	tab1[0] = 1;
 	tab1[1] = malloc(8);
 
-	tab3 = (int *)malloc(8);
-	tab3[0] = 2;
-	tab3[1] = malloc(8);
+	tab2 = (int *)malloc(8);
+	tab2[0] = 2;
+	tab2[1] = malloc(8);
 
 	strcpy((char *)tab1[1], argv[1]);
-	strcpy((char *)tab3[1], argv[2]);
+	strcpy((char *)tab2[1], argv[2]);
 
 	stream = fopen("/home/user/level8/.pass", "r");
 	fgets(c, 68, stream);
