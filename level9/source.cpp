@@ -2,6 +2,10 @@
 #include <stdlib.h>
 
 class N {
+	private:
+		int		value;
+		char	annotation[112];
+
 	public:
 		N(int value) {
 			this->value = value;
@@ -21,10 +25,6 @@ class N {
 
 			memcpy(this->annotation, annotation, n);
 		}
-
-	private:
-		int		value;
-		char	*annotation;
 };
 
 int		main(int argc, char **argv)
