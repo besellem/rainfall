@@ -38,5 +38,5 @@ int		main(int argc, char **argv)
 	first = new N(5);
 	sec = new N(6);
 	first->setAnnotation(argv[1]);
-	return sec->(sec, first);
+	// return sec->(sec, first);
 }
