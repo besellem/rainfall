@@ -1,3 +1,5 @@
+# bonus0
+
 start of buffer: 0xbffff6f6
 
 buffer end addr:	0xbffff733
